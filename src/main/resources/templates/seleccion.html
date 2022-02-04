@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="../style.css">
+<body>
+<div id="outSesion">
+<a href="/"> 
+	<input class="cerrar" id="salir" type="submit" value="Cerrar sesión"/>
+</a>
+</div>
+ 	<div class="welcome">
+ 		<p>Bienvenido<p th:text=${usuario.nombre}></p></p>
+ 	</div>
+    <div class="container">
+    <form method="get" action="/nuevopedido">
+        <button class="two">Nuevo pedido</button>
+	</form>
+       <form method="get" action="/listapedidos">
+        <button class="three">Lista pedidos</button>
+	</form>
+</body>
+</html>
