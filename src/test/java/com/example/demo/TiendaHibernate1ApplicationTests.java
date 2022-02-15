@@ -9,9 +9,5 @@ class TiendaHibernate1ApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-	@Test
-	void testError(){
-	assertTrue(false);	
-	}
 
 }
