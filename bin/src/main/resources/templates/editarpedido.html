@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="/style.css">
 <title>Editar Pedido</title>
 <body>
 	<form action="#" th:action="@{/edit/submit}" 
@@ -10,21 +10,23 @@
    			<tr>
    				<td><label>ID</label></td>
    				<td>
-   					<input type="text" th:field="*{id}" th:attrappend="readonly=${pedido.id > 0} ? 'readonly' : null"/>
+   					<input type="text" name="id" th:field="*{id}" th:attrappend="readonly=${pedido.id > 0} ? 'readonly' : null"/>
    				</td>
    			</tr>
    			
-   			<tr>
    			
-   			<tr th:each="product, stat :*{producto}">
-   			<td><label>Productos</label></td>
+   		<tr th:each="product, stat :*{productos}">
+   			<td><label>Prod / Cantidad</label></td>
    				<td>
-   					 <input readonly th:field="*{producto[__${stat.index}__].nombre}"/>
-       				 <input th:field="*{producto[__${stat.index}__].cantidad}"/>
-       				 <input hidden readonly th:field="*{producto[__${stat.index}__].precio}"/>
+   				     <input readonly th:field="*{productos[__${stat.index}__].producto.nombre}"/>
+       				 <input th:field="*{productos[__${stat.index}__].cantidad}"/>
+       				 <input hidden readonly th:field="*{productos[__${stat.index}__].id}"/>
+       				 <input hidden readonly th:field="*{productos[__${stat.index}__].pedido}"/>
+       				 <input hidden readonly th:field="*{productos[__${stat.index}__].producto}"/>
+       				 
     			</td>
 			</tr>
-   				
+
    				
    			<tr>
    				<td><label>Direccion</label></td>
@@ -48,12 +50,13 @@
    			<tr>
    				<td><label>Fecha</label></td>
    				<td>
-   					<input readonly type="text" th:field="*{fecha}"/>
+   					<input readonly type="text" th:field="*{fechaCompra}"/>
 				</td>
    			</tr>
    			<tr>
    				<td><input type="submit" value="Aceptar"/></td>
    			</tr>
+   
    		</table>
    	</form>
 </body>
